@@ -1,0 +1,1 @@
+// script.js will be populated in the next commits
