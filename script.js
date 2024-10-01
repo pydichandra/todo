@@ -4,19 +4,30 @@
 // Commit 2: Add Todo Functionality
 // Added JavaScript functionality to add new todos to the list.
 
+// Commit 3: Display Todos
+// Updated HTML to display added todos in the todo list.
+
 document.addEventListener('DOMContentLoaded', function() {
-  const newTodoInput = document.getElementById('new-todo');
-  const addTodoButton = document.getElementById('add-todo');
-  const todoList = document.getElementById('todo-list');
+    const newTodoInput = document.getElementById('new-todo');
+    const addTodoButton = document.getElementById('add-todo');
+    const todoList = document.getElementById('todo-list');
 
-  addTodoButton.addEventListener('click', function() {
-    const newTodoText = newTodoInput.value.trim();
+    addTodoButton.addEventListener('click', function() {
+        const newTodoText = newTodoInput.value.trim();
 
-    if (newTodoText !== '') {
-      const newTodoItem = document.createElement('li');
-      newTodoItem.textContent = newTodoText;
-      todoList.appendChild(newTodoItem);
-      newTodoInput.value = '';
-    }
-  });
+        if (newTodoText !== '') {
+            const newTodoItem = document.createElement('li');
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.classList.add('todo-checkbox');
+
+            const todoTextSpan = document.createElement('span');
+            todoTextSpan.textContent = newTodoText;
+
+            newTodoItem.appendChild(checkbox);
+            newTodoItem.appendChild(todoTextSpan);
+            todoList.appendChild(newTodoItem);
+            newTodoInput.value = '';
+        }
+    });
 });
