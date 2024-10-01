@@ -7,6 +7,9 @@
 // Commit 3: Display Todos
 // Updated HTML to display added todos in the todo list.
 
+// Commit 4: Manage Todos (Mark as Complete)
+// Added functionality to mark todos as complete.
+
 document.addEventListener('DOMContentLoaded', function() {
     const newTodoInput = document.getElementById('new-todo');
     const addTodoButton = document.getElementById('add-todo');
@@ -28,6 +31,14 @@ document.addEventListener('DOMContentLoaded', function() {
             newTodoItem.appendChild(todoTextSpan);
             todoList.appendChild(newTodoItem);
             newTodoInput.value = '';
+
+            checkbox.addEventListener('change', function() {
+                if (this.checked) {
+                    newTodoItem.classList.add('completed');
+                } else {
+                    newTodoItem.classList.remove('completed');
+                }
+            });
         }
     });
 });
